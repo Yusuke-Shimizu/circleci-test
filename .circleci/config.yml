@@ -1,22 +1,23 @@
 version: 2
 jobs:
-  build:
+  lint:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: chef/chefdk # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: chef-client --local-mode --override-runlist hello-chef
+      - run: foodcritic cookbooks/
   test:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: chef/chefdk # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
+      - run: chef-client --local-mode --override-runlist hello-chef
       - run: inspec exec cookbooks/hello-chef/test/integration/default/default_test.rb
 workflows:
   version: 2
-  build_and_test:
+  chef-inspec:
     jobs:
-      - build
+      - lint
       - test:
           requires:
-            - build
+            - lint

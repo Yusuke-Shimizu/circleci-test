@@ -1,6 +1,6 @@
 name 'hello-chef'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Yusuke Shimizu'
+maintainer_email 'shimi.nekoze@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures hello-chef'
 long_description 'Installs/Configures hello-chef'
