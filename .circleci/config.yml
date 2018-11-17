@@ -7,6 +7,8 @@ jobs:
       - checkout # check out the code in the project directory
       - run: echo "hello build world" # run the `echo` command
       - run: cat README.md
+      - run: which chef-client
+      - run: which inspec
   test:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: chef/chefdk # the primary container, where your job's commands are run
