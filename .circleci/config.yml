@@ -12,9 +12,16 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - run: foodcritic cookbooks/
-  test:
+  test-ubuntu:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: chef/chefdk # the primary container, where your job's commands are run
+    steps:
+      - checkout # check out the code in the project directory
+      - run: chef-client --local-mode --override-runlist hello-chef
+      - run: inspec exec cookbooks/hello-chef/test/integration/default/default_test.rb
+  test-centos:
+    docker: # use the docker executor type; machine and macos executors are also supported
+      - image: jannikzed/chefdk-centos7 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
       - run: chef-client --local-mode --override-runlist hello-chef
@@ -25,6 +32,9 @@ workflows:
     jobs:
       - info
       - lint
-      - test:
+      - test-ubuntu:
+          requires:
+            - lint
+      - test-centos:
           requires:
             - lint
