@@ -9,6 +9,8 @@ jobs:
       - run: cat README.md
       - run: which chef-client
       - run: which inspec
+      - run: chef-client --local-mode --override-runlist hello-chef
+      - run: inspec exec cookbooks/hello-chef/test/integration/default/default_test.rb
   test:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: chef/chefdk # the primary container, where your job's commands are run
