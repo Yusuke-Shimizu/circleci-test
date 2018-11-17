@@ -16,3 +16,9 @@ jobs:
       - run: echo "hello world" # run the `echo` command
       - run: echo "hello" # run the `echo` command
       - run: echo "world" # run the `echo` command
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
