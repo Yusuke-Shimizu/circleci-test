@@ -1,4 +1,4 @@
 # hello-chef
 
-TODO: Enter the cookbook description here.
-
+Provision and Test local machine using Chef and Inspec.
+Check CircleCI.

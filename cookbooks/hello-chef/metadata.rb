@@ -6,6 +6,10 @@ description 'Installs/Configures hello-chef'
 long_description 'Installs/Configures hello-chef'
 version '0.1.0'
 chef_version '>= 12.14' if respond_to?(:chef_version)
+source_url 'https://github.com/Yusuke-Shimizu/circleci-test'
+issues_url "#{source_url}/issues"
+supports "mac_os_x"
+license 'MIT'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
