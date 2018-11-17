@@ -9,6 +9,7 @@ chef_version '>= 12.9.41' if respond_to?(:chef_version)
 source_url 'https://github.com/Yusuke-Shimizu/circleci-test'
 issues_url "#{source_url}/issues"
 supports "ubuntu", '>= 18.04'
+supports "centos", '>= 7.2'
 license 'MIT'
 
 # The `issues_url` points to the location where issues for this cookbook are
