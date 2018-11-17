@@ -3,6 +3,7 @@ jobs:
   info:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: chef/chefdk # the primary container, where your job's commands are run
+      - image: jannikzed/chefdk-centos7
     steps:
       - checkout # check out the code in the project directory
       - run: ohai
