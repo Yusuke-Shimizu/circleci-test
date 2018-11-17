@@ -23,6 +23,7 @@ workflows:
   version: 2
   chef-inspec:
     jobs:
+      - info
       - lint
       - test:
           requires:
