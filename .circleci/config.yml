@@ -1,5 +1,6 @@
 version: 2
 jobs:
+  info:
   info-ubuntu:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: chef/chefdk # the primary container, where your job's commands are run
@@ -36,8 +37,13 @@ workflows:
   version: 2
   chef-inspec:
     jobs:
+      - info
       - info-ubuntu
+          requires:
+            - info
       - info-cent
+          requires:
+            - info
       - lint
       - test-ubuntu:
           requires:
