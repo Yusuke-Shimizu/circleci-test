@@ -38,10 +38,10 @@ workflows:
   chef-inspec:
     jobs:
       - info
-      - info-ubuntu
+      - info-ubuntu:
           requires:
             - info
-      - info-cent
+      - info-cent:
           requires:
             - info
       - lint
