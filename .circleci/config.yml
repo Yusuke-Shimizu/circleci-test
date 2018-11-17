@@ -3,10 +3,10 @@
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
 version: 2
-test:
-  override:
-    - exit 0
-# jobs:
+jobs:
+  test:
+    override:
+      - exit 0
 #   build:
 #     docker:
 #       # specify the version you desire here
