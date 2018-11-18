@@ -10,7 +10,6 @@ jobs:
       - image: chef/chefdk # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: docker info
       - run: tree -a
       - run: ohai
   info-cent:
@@ -18,7 +17,6 @@ jobs:
       - image: jannikzed/chefdk-centos7
     steps:
       - checkout # check out the code in the project directory
-      - run: docker info
       - run: tree -a
       - run: ohai
   lint:
