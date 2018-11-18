@@ -10,12 +10,17 @@ jobs:
       - image: chef/chefdk # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
+      - run: docker info
+      - run: tree -a
       - run: ohai
   info-cent:
     docker: # use the docker executor type; machine and macos executors are also supported
+      - run: docker info
       - image: jannikzed/chefdk-centos7
     steps:
       - checkout # check out the code in the project directory
+      - run: docker info
+      - run: tree -a
       - run: ohai
   lint:
     docker: # use the docker executor type; machine and macos executors are also supported
