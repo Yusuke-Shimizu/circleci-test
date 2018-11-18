@@ -15,7 +15,6 @@ jobs:
       - run: ohai
   info-cent:
     docker: # use the docker executor type; machine and macos executors are also supported
-      - run: docker info
       - image: jannikzed/chefdk-centos7
     steps:
       - checkout # check out the code in the project directory
